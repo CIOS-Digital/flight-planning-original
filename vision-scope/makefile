@@ -1,6 +1,6 @@
 LATEXMK      = ./out/latexmk.pl
 LATEXMK_LINK = https://cedrickc.net/res/latexmk.pl
-LATEXMK_ARGS = --pdf --outdir="../out/build" --jobname=document --cd --interaction=nonstopmode
+LATEXMK_ARGS = --pdf --outdir="../out/build" --jobname=document --cd --interaction=nonstopmode --bibtex
 
 TARGET_PDF = ./out/vision-scope.pdf
 BUILD_PDF  = ./out/build/document.pdf
