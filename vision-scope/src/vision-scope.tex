@@ -10,7 +10,7 @@ Flight Planning
     \and Sander Scherman Garzon
     \and Justine O'Neil
 }
-\date{Version 0.1 \\ 2017-01-30}
+\date{Version 0.2 \\ 2017-02-01}
 
 \begin{document}
 \maketitle
@@ -21,15 +21,26 @@ Flight Planning
 \begin{tabularx}{\textwidth}{|l|r|X|l|}
 \hline
 Editor & Revision & Description & Date \\ \hline \hline
+Various & 0.2 & Initial document body and writing & 2017-02-01 \\ \hline
 Cedrick Cooke & 0.1 & Initial document blocking & 2017-01-30 \\ \hline
 \end{tabularx}
 
 \section{Requirements}
 \subsection{Background}
+One of the missions which the Civil Air Patrol may have to complete in the event of a serious earthquake is to survey bridge infrastructure to verify its structural integrity.  Pilots are sent on missions to fly over and photograph bridges across the state of Washington.  Currently, CAP pilots are given notebooks containing flight plans with a series of geographic coordinates.  While flying, the pilots manually key the coordinates of their next location into the cockpit navigation system.  The Flight Plan Editor software will allow CAP to generate flight plan datafiles that are compatible with the navigation system so that pilots can select them from the cockpit navigation menu, thereby relieving them of the responsibility of manualy entering location coordinates.
+
 \subsection{Business Opportunity}
+
+
 \subsection{Business Objectives and Success Criteria}
 \subsection{Customer or Market Needs}
+Currently, other free flight planning software, (Ex. SkyVector), is web based and therefore is required to be connected to the internet. Our software must be able to be accessable on a desktop, reguardless of internet connection. It must also fit onto a SD card, and be able to be intuitively navicable on a G1000 airplane navigation system. It's longitude and latitude navigation must be accurate for the user-requested locations. 
 \subsection{Business Risks}
+The primary risk of the software is the threat of innacturate latitude and logitude for a given bridge ifrrastructure, whether it be completely in the wrong area, or switching bridges' locations. The potential for this is probable, as we will be entering numerous locations. However it can be countered by thorough review by peers and other maps to double check locations.
+
+Another risk is convoluted accesibility, causing the use of the program to be impractical or less effeciant than the current method of notebook-to-GPS copying or other software. This is very likely, as this program is not expected to be updated to adress user inconveniances or compete with other future navigation software. This can be mitigated by through user testing and review. 
+
+Finally, our last clear risk is lack of functionality, or complete inability for the program to function on the GPS in flight or be transferred from the desktop to the GPS. This is unlikely, as we will be regularly checking to see that our XML output is identical to the current GPS XML used, and run it before final shipping. 
 
 \section{Vision of Solution}
 \subsection{Vision Statement}
@@ -38,8 +49,21 @@ Cedrick Cooke & 0.1 & Initial document blocking & 2017-01-30 \\ \hline
 
 \section{Scope, Limitations}
 \subsection{Scope of Initial Release}
+The initial release will have the bare minimum functionality:
+    flight plans for the G1000 will be able to be opened or created,
+    and waypoints of the flight may be input or updated by latitude and longitude only.
+A prototype interface will exist, but does not have to be representitive of the final interface.
+
 \subsection{Scope of Subsequent Releases}
+Subsequent releases will come in three stages to add a graphical interface, locations, and printing of flight plans/maps.
+The first subsequent release \emph{must} contain a prototype of the graphical user interface.
+The second subsequent release will add printing.
+The last release will add pre-defined waypoints for things such as airports.
+
 \subsection{Limitations and Exclusions}
+The software must work on Microsoft Windows, and is not required to work on Linux or Mac computers.
+The software will assume that the user is correct,
+    and the software shall make no attempts to fix errors in the user's input.
 
 \section{Business Context}
 \subsection{Stakeholder Profiles}
