@@ -32,10 +32,37 @@ Cedrick Cooke & 0.1 & Initial document blocking & 2017-01-30 \\ \hline
 \subsection{Business Risks}
 
 \section{Vision of Solution}
-\subsection{Vision Statement}
-\subsection{Major Features}
-\subsection{Assumptions and Dependencies}
+  \subsection{Vision Statement}
+    For flight operators who require an easy tool in generating flight plans for
+    the Garmin G1000 integrated flight instrument system, the Flight Plan Editor
+    is a tool that will allow flight operators to input locations with
+    lattitude/longitude coordinates to generate a flight path.
+    This program will allow flight operators to create flight plans in a
+    comfortable manner opposed to using either the built-in editor in the G1000
+    or hand-creating plans using a text editor.
 
+  \subsection{Major Features}
+    \begin{description}
+      \setlength{\itemsep}{1pt}
+      \setlength{\parskip}{0pt}
+      \setlength{\parsep}{0pt}
+      \item[FE-01] Display sectional map
+      \item[FE-02] Input destination coordinates using lattitude/longitude
+      \item[FE-03] Distinguish waypoint coordinates from destinations
+      \item[FE-04] Draw flight path on sectional map between coordinates
+      \item[FE-05] Save plan in XML to SD Card readable by Garmin G1000
+    \end{description}
+  \subsection{Assumptions and Dependencies}
+     \begin{description}
+      \setlength{\itemsep}{1pt}
+      \setlength{\parskip}{0pt}
+      \setlength{\parsep}{0pt}
+      \item[AS-01] Flight operators can map around restricted areas/altitude
+      \item[AS-02] Sectional map(s) are located in the proper location\\
+      \item[DE-01] Windows operating system
+      \item[DE-02] SD Card supplied is of a certain make/model
+      \item[DE-03] Flight plan is used in Garmin G1000
+    \end{description}
 \section{Scope, Limitations}
 \subsection{Scope of Initial Release}
 \subsection{Scope of Subsequent Releases}
