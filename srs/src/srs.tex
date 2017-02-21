@@ -1,0 +1,149 @@
+\documentclass[12pt, letterpaper]{article}
+\input{preamble.tex}
+\usepackage{enumitem}
+\title{SRS \\
+Flight Planning
+}
+\author{ Cedrick Cooke
+    \and Ian Littke
+    \and Owen Roth-Lerner
+    \and Sander Scherman Garzon
+    \and Justine O'Neil
+}
+\date{Version 0.1 \\ 2017-02-18}
+
+\begin{document}
+\maketitle
+
+\tableofcontents
+
+\section*{Summary of Changes}
+\begin{tabularx}{\textwidth}{|l|r|X|l|}
+\hline
+Editor & Revision & Description & Date \\ \hline \hline
+Ian Littke & 0.1 & Initial document blocking & 2017-02-18 \\ \hline
+\end{tabularx}
+
+\section{Introduction}
+  \subsection{Purpose}
+    This SRS describes the software functional and nonfunctional requirements
+    for release 1.0 of the Flight Plan Editor.
+    This document is intended to be used by the memers of the project team that will implement
+    and verify th correct functioning of the system.
+    Unless otherwise noted, all requirements specified here are high priority
+    and committed for release 1.0.
+  \subsection{Document Conventions}
+  \subsection{Intended Audience and Reading Suggestions}
+  This SRS is 
+  
+  \subsection{Project Scope}
+  The Flight Planning Editor will allow flight planners in the Civilian Air Patrol (CAP)
+  to plan their flights in an easy fashion and store them in a Secure Digital (SD) card.
+  A detailed project description is available in the \textit{Flight Plan Editor Vision and Scope Document}.
+  The section in that document titled "Scope of Initial and Subsequent Releases" lists the features that are
+  scheduled for full or partial implementation in this release.
+  \subsection{References}
+
+\section{Overall Description}
+  This section gives an overview of the functionality of the product.
+  It describes the informal requirements and is used to establish a context for the technical
+  requirements specification in the next section.
+\subsection{Product Perspective}
+  \subsection{Product Features}
+
+  \subsection{User Classes and Characteristics}
+    The user is expected to have knowledge of flying area and can read charts.
+    The user shall also be expected to have lattitude-longitude coordinates of 
+    waypoints of interest to include in the flight plan.
+  \subsection{Operating Environment}
+    \begin{tabularx}{\textwidth}{|l|X|}
+      \hline
+      OE-1: & The Flight Plan Editor shall operate with the following Operating Systems: 
+              Microsoft Windows 7, Microsoft Windows 8 and Microsoft Windows 10\\
+      \hline
+    \end{tabularx}
+  \subsection{Design and Implementation Constraints}
+    \begin{tabularx}{\textwidth}{|l|X|}
+      \hline
+      CO-1: & The system's design and code shall be written in C\#\\ \hline
+      CO-2: & All flight plans shall be recorded in XML\\
+      \hline
+    \end{tabularx}
+  \subsection{User Documentation}
+    \begin{tabularx}{\textwidth}{|l|X|}
+      \hline
+      UD-1: & The system shall provide hierarchiacal and cross-linked help system in HTML that 
+              describes and illustrates all system functions.\\ \hline
+      UD-2: & The system shall also offer tooltips to assist in user functions \\
+      \hline
+    \end{tabularx}
+  \subsection{Assumptions and Dependencies}
+    \begin{tabularx}{\textwidth}{|l|X|}
+      \hline
+      AS-1: & User is using an appropriate SD Card compatible with the Garmin G1000\\ \hline
+      AS-2: & User is expected to update charts from the FAA as they become available\\
+      \hline
+    \end{tabularx}
+
+\section{System Features}
+  \subsection{System Feature X}
+    \subsubsection{Description and Priority}
+    \subsubsection{Stimulus/Response Sequences}
+    \subsubsection{Functional Requirements}
+
+\section{External Interface Requirements}
+  \subsection{User Interfaces}
+    \begin{tabularx}{\textwidth}{|l|X|}
+      \hline
+      UI-1: & The UI shall have ability to input lattitude/longitude coordinates\\ \hline
+      UI-2: & The UI shall display a chart that can be moved and arranged\\ \hline
+      UI-3: & The UI shall have a way to load and save XML flight plan data\\ \hline
+    \end{tabularx}
+  \subsection{Hardware Interfaces}
+    \begin{tabularx}{\textwidth}{|l|X|}
+      \hline
+      HI-1: & SD Card writer with SD Card is jammed\\
+      \hline
+    \end{tabularx}
+
+  \subsection{Software Interfaces}
+    \begin{tabularx}{\textwidth}{|l|X|}
+      \hline
+      SI-1: & stuff here \\
+      \hline
+    \end{tabularx}
+
+  \subsection{Communications Interfaces}
+  No communications interfaces have been identified.
+
+\subsection{Other Nonfunctional Requirements}
+  \subsection{Performance Requirements}
+    \begin{tabularx}{\textwidth}{|l|X|}
+      \hline
+      PE-1: & The UI shall refactor the tiled maps within 1 minutes\\ \hline
+    \end{tabularx}
+
+  \subsection{Safety Requirments}
+  No safety requirements have been identified.
+  \subsection{Security Requirements}
+  No security requirements have been identified.
+  \subsection{Software Quality Attributes}
+
+\section{Other Requirements}
+\appendix
+\section{Glossery}
+\begin{description}[style=nextline, leftmargin=17mm, topsep=0mm,noitemsep]
+      \item[CAP] \hfill \ Civilian Air Patrol
+      \item[FAA] \hfill \ Federal Aviation Avionics
+      \item[Garmin G1000] \hfill \ Integratead flight instrumentation system used in planes
+      \item[GPS] \hfill \ Global Positioning System
+  \end{description}
+
+\section{Analysis Models}
+\section{Issues List}
+
+
+
+\bibliography{citations}{}
+\bibliographystyle{plain}
+\end{document}
