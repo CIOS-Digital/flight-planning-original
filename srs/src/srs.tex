@@ -110,26 +110,56 @@ Ian Littke & 0.1 & Initial document blocking & 2017-02-21 \\ \hline
     \subsubsection{Description and Priority}
       The application will display the sectional map as the main interface.
       The map will respond to input from lattitude/longitude coordinate input as well
-      as having the ability to pan around the map.
+      as having the ability to pan around the map. Priority = high.
     \subsubsection{Stimulus/Response Sequences}
       \begin{description}
-        \item[Step 1]
+        \item[Stimulus] A user can request to create a new waypoint.
+		\item[Response]	The sectional map will draw a new point on the map to
+			reflect the changes made.
+		\item[Stimulus] A user can also click on the map and drag their mouse 
+			across the screen.
+		\item[Response] The map will maneuver and scroll vertically and horizontally
+			in the opposite direction of the mouse pointers movement.
+		\item[Stimulus] A user may also scroll with the mousewheel.
+		\item[Response] The map will either zoom in as the mousewheel is scrolling upwards.
+			or the map can zoom out if scrolling downwards.
       \end{description}
     \subsubsection{Functional Requirements}
 
   \subsection{Input Destination Coordinates}
+	
     \subsubsection{Description and Priority}
+		In the top left corner of the application, there are two input windows for 
+		lattitude/longitude coordinate input. Once the user enters the data, 
+		points on the sectional map will appear as well as a text list for each 
+		coordinate. Priority = high.
     \subsubsection{Stimulus/Response Sequences}
       \begin{description}
-        \item[Step 1]
+        \item[Stimulus] User will click on the lattitude text box to input the 
+			lattitude, and complete the same for longitude.
+		\item[Response] Upon completion, the user will hit the enter key on their
+			keyboard, and the sectional map shall display the point respective
+			to the lattitude/longitude input.
+		\item[Stimulus] User can then request to edit an existing waypoint.
+		\item[Response] The coordinate is displayed, and left with the option to
+			either save or discard the changes.
       \end{description}
     \subsubsection{Functional Requirements}
 
-    \subsection{Distinguish Wapyoint Coordinates}
+    \subsection{Distinguish Waypoint Coordinates}
       \subsubsection{Description and Priority}
+		As a user inputs more lattitude/longitude coordinates, the program will
+	    draw a new waypoint onto the sectional map for viewing as well 
+		as having a small subtext containing the lattitude/longitude coordinates 
+		for viewing to distinguish each waypoint. Priority = medium.
       \subsubsection{Stimulus/Response Sequences}
         \begin{description}
-          \item[Step 1]
+          \item[Stimulus] A user can request to view the listed waypoints on the
+			sectional map.
+		  \item[Response] The program will display the lattitude/longitude data
+			for that given point on the sectional map, as well as highlight the
+			list of waypoints that were already added to that particular flight
+			plan.
         \end{description}
       \subsubsection{Functional Requirements}
 
