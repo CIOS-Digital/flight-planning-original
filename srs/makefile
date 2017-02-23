@@ -20,6 +20,9 @@ $(TARGET_PDF): prebuild $(BUILD_PDF)
 	cp $(BUILD_PDF) $(TARGET_PDF)
 
 $(BUILD_PDF): prebuild ./src/*.tex
+	-$(LATEXMK) $(LATEXMK_ARGS) ./src/srs.tex
+	-$(LATEXMK) $(LATEXMK_ARGS) ./src/srs.tex
+	-$(LATEXMK) $(LATEXMK_ARGS) ./src/srs.tex
 	$(LATEXMK) $(LATEXMK_ARGS) ./src/srs.tex
 
 clean:
