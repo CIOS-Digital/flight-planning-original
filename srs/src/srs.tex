@@ -16,7 +16,7 @@ Flight Planning
     \and Sander Scherman Garzon
     \and Justine O'Neil
 }
-\date{Version 0.1 \\ 2017-02-21}
+\date{Version 0.2 \\ 2017, February 23}
 
 \begin{document}
 \maketitle
@@ -28,6 +28,7 @@ Flight Planning
 \hline
 Editor & Revision & Description & Date \\ \hline \hline
 Ian Littke & 0.1 & Initial document blocking & 2017-02-21 \\ \hline
+\makecell[cl]{Cedrick Cooke,\\ Own Roth-Lerner,\\ Sander Scherman Garzon} & 0.2 & Expanded sections 3 and 4 & 2017-02-23 \\ \hline
 \end{tabularx}
 
 \section{Introduction}
@@ -65,44 +66,40 @@ Ian Littke & 0.1 & Initial document blocking & 2017-02-21 \\ \hline
   This section gives an overview of the functionality of the product.
   It describes the informal requirements and is used to establish a context for the technical
   requirements specification in the next section.
-\subsection{Product Perspective}
+  \subsection{Product Perspective}
+    This flight planning editor addresses a need of the CAP in regards to emergency flight planning.
+    Specifically, this is new software which allows a user to easily input latitude and longitude coordinates to develop flight plans.
+    These flight plans are then able to exported onto SD cards in a format that the Garming G1000 understands.
   \subsection{Product Features}
-
+    The most important feature of this product is the ability to read, edit, and write XML containing flight plans.
+    This is done through a user interface which displays a map of the flight plan.
   \subsection{User Classes and Characteristics}
     The user is expected to have knowledge of flying area and can read charts.
     The user shall also be expected to have lattitude-longitude coordinates of
     waypoints of interest to include in the flight plan.
   \subsection{Operating Environment}
-    \begin{tabularx}{\textwidth}{|l|X|}
-      \hline
-      OE-1: & The Flight Plan Editor shall operate with the following Operating Systems:
-              Microsoft Windows 7, Microsoft Windows 8 and Microsoft Windows 10\\
-      \hline
+    \begin{tabularx}{\textwidth}{|l|X|} \hline
+      OE-1: & The Flight Plan Editor shall operate with the following operating systems:
+              Microsoft Windows 7, Microsoft Windows 8 and Microsoft Windows 10. \\ \hline
     \end{tabularx}
   \subsection{Design and Implementation Constraints}
-    \begin{tabularx}{\textwidth}{|l|X|}
-      \hline
-      CO-1: & The system's design and code shall be written in C\# \\ \hline
-      CO-2: & All flight plans shall be recorded in XML\\
-      \hline
+    \begin{tabularx}{\textwidth}{|l|X|} \hline
+      CO-1: & The system's design and code shall be written in C\#. \\ \hline
+      CO-2: & All flight plans shall be recorded in XML. \\ \hline
     \end{tabularx}
   \subsection{User Documentation}
-    \begin{tabularx}{\textwidth}{|l|X|}
-      \hline
+    \begin{tabularx}{\textwidth}{|l|X|} \hline
       UD-1: & The system shall provide hierarchiacal and cross-linked help system in HTML that
               describes and illustrates all system functions.\\ \hline
-      UD-2: & The system shall also offer tooltips to assist in user functions \\
-      \hline
+      UD-2: & The system shall also offer tooltips to assist in user functions \\ \hline
     \end{tabularx}
   \subsection{Assumptions and Dependencies}
-    \begin{tabularx}{\textwidth}{|l|X|}
-      \hline
-      AS-1: & Flight operators can map around restricted areas/altitude\\ \hline
-      AS-2: & Sectional map(s) are located in the proper location\\ \hline
-      DE-1: & Windows operating system\\ \hline
-      DE-2: & SD Card supplied is of a certain make/model\\ \hline
-      DE-3: & Flight plan is used in Garmin G1000\\ \hline
-      \hline
+    \begin{tabularx}{\textwidth}{|l|X|} \hline
+      AS-1: & Flight operators can map around restricted areas/altitude. \\ \hline
+      AS-2: & Sectional map(s) are located in the proper location. \\ \hline
+      DE-1: & Windows operating system, .NET stack. \\ \hline
+      DE-2: & SD Card supplied is of a certain make/model. \\ \hline
+      DE-3: & Flight plan is used in Garmin G1000. \\ \hline
     \end{tabularx}
 
 \section{System Features}
@@ -110,26 +107,56 @@ Ian Littke & 0.1 & Initial document blocking & 2017-02-21 \\ \hline
     \subsubsection{Description and Priority}
       The application will display the sectional map as the main interface.
       The map will respond to input from lattitude/longitude coordinate input as well
-      as having the ability to pan around the map.
+      as having the ability to pan around the map. Priority = high.
     \subsubsection{Stimulus/Response Sequences}
       \begin{description}
-        \item[Step 1]
+        \item[Stimulus] A user can request to create a new waypoint.
+		\item[Response]	The sectional map will draw a new point on the map to
+			reflect the changes made.
+		\item[Stimulus] A user can also click on the map and drag their mouse 
+			across the screen.
+		\item[Response] The map will maneuver and scroll vertically and horizontally
+			in the opposite direction of the mouse pointers movement.
+		\item[Stimulus] A user may also scroll with the mousewheel.
+		\item[Response] The map will either zoom in as the mousewheel is scrolling upwards.
+			or the map can zoom out if scrolling downwards.
       \end{description}
     \subsubsection{Functional Requirements}
 
   \subsection{Input Destination Coordinates}
+	
     \subsubsection{Description and Priority}
+		In the top left corner of the application, there are two input windows for 
+		lattitude/longitude coordinate input. Once the user enters the data, 
+		points on the sectional map will appear as well as a text list for each 
+		coordinate. Priority = high.
     \subsubsection{Stimulus/Response Sequences}
       \begin{description}
-        \item[Step 1]
+        \item[Stimulus] User will click on the lattitude text box to input the 
+			lattitude, and complete the same for longitude.
+		\item[Response] Upon completion, the user will hit the enter key on their
+			keyboard, and the sectional map shall display the point respective
+			to the lattitude/longitude input.
+		\item[Stimulus] User can then request to edit an existing waypoint.
+		\item[Response] The coordinate is displayed, and left with the option to
+			either save or discard the changes.
       \end{description}
     \subsubsection{Functional Requirements}
 
-    \subsection{Distinguish Wapyoint Coordinates}
+    \subsection{Distinguish Waypoint Coordinates}
       \subsubsection{Description and Priority}
+		As a user inputs more lattitude/longitude coordinates, the program will
+	    draw a new waypoint onto the sectional map for viewing as well 
+		as having a small subtext containing the lattitude/longitude coordinates 
+		for viewing to distinguish each waypoint. Priority = medium.
       \subsubsection{Stimulus/Response Sequences}
         \begin{description}
-          \item[Step 1]
+          \item[Stimulus] A user can request to view the listed waypoints on the
+			sectional map.
+		  \item[Response] The program will display the lattitude/longitude data
+			for that given point on the sectional map, as well as highlight the
+			list of waypoints that were already added to that particular flight
+			plan.
         \end{description}
       \subsubsection{Functional Requirements}
 
@@ -145,51 +172,76 @@ Ian Littke & 0.1 & Initial document blocking & 2017-02-21 \\ \hline
             The user will be able to see this editing of order (and thereby flight path) automatically
             on the map.
         \subsubsection{Functional Requirements}
-			\begin{tabularx}{\textwidth}{|l|X|}
-    				\hline
-    				FR-1: & The point list shall have ability to edit ordering of lat/long coordinates\\ \hline
-     			FR-2: & If adding new lat/long coordinates, the previous coord will connect to new one.\\ \hline
-      			FR-3: & If coordinate is last on list, the path will end there.\\ \hline
-      			FR-4: & The map shall update to show new path as the list is edited/extended.\\ \hline
-    			\end{tabularx}
-        \subsection{Save Flight Plan in XML to SD Card}
+          \begin{tabularx}{\textwidth}{|l|X|} \hline
+            FR-1: & The point list shall have ability to edit ordering of lat/long coordinates\\ \hline
+            FR-2: & If adding new lat/long coordinates, the previous coord will connect to new one.\\ \hline
+            FR-3: & If coordinate is last on list, the path will end there.\\ \hline
+      	    FR-4: & The map shall update to show new path as the list is edited/extended.\\ \hline
+          \end{tabularx}
+        \subsection{Open and Save Flight Plan in XML to SD Card}
           \subsubsection{Description and Priority}
+            The Garmin G1000 uses SD cards to store flight plans, and does so in the XML format.
+            For this program to be of any use, it \emph{must} support reading and writing these files.
+            Priority = High
           \subsubsection{Stimulus/Response Sequences}
+            \paragraph{Opening a file:}
             \begin{description}
-              \item[Step 1]
+              \item[Step 1] User initiates an open action.
+              \item[Step 1.1] If the user has an unsaved, open flight plan, prompt the user if they want to save it.
+                If the user chooses to save the plan, complete the `saving a file' section before continuing.
+              \item[Step 2] User is prompted to select a file to open.
+              \item[Step 3] The file is deserialized and displayed.
+              \item[Step 3.1] If the file is invalid, corrupt, or otherwise fails to open, display a warning to the user.
+            \end{description}
+            \paragraph{Saving a file:}
+            \begin{description}
+              \item[Step 1] User initiates a save action or a save-as action.
+              \item[Step 2] If the user selected a save-as action, or if the current plan is not already associated with a file,
+                the user selects the file location and file name they would like to use.
+              \item[Step 3] The current flight plan is serialized to XML, and written to the file.
+              \item[Step 4] After writing the file completes, a message is displayed to alert the user.
             \end{description}
           \subsubsection{Functional Requirements}
+          \begin{tabularx}{\textwidth}{|l|X|} \hline
+            FlightPlan.XML.Open & The program shall let a user open files. \\ \hline
+            FlightPlan.XML.Open.Select & The program shall prompt the user to select a file to open. \\ \hline
+            FlightPlan.XML.Open.Failure & After a plan is selected to open, if it fails, the user shall be alerted to the failure. \\ \hline
+            FlightPlan.XML.Open.Success & After a plan is selected to open, if it succeeds, the user interface should automatically update to reflect the plan. \\ \hline
+            FlightPlan.XML.Save & The program shall let a user save files. \\ \hline
+            FlightPlan.XML.Save.Select & If the program cannot detect where the file was opened from,
+                or if the save-as option was used to initiate the save, the program shall prompt a user for a location to save the file. \\ \hline
+            FlightPlan.XML.Save.Failure & If an attempt to save a file fails, the user shall be alerted to the failure. \\ \hline
+            FlightPlan.XML.Save.Success & If an attempt to save a file succeeds, the program shall display a message indicating the success. \\ \hline
+          \end{tabularx}
 
 \section{External Interface Requirements}
   \subsection{User Interfaces}
-    \begin{tabularx}{\textwidth}{|l|X|}
-      \hline
-      UI-1: & The UI shall have ability to input lattitude/longitude coordinates\\ \hline
-      UI-2: & The UI shall display a chart that can be moved and arranged\\ \hline
-      UI-3: & The UI shall have a way to load and save XML flight plan data\\ \hline
+    \begin{tabularx}{\textwidth}{|l|X|} \hline
+      UI-1: & The UI shall have ability to input lattitude/longitude coordinates. \\ \hline
+      UI-2: & The UI shall display a chart that can be moved and arranged. \\ \hline
+      UI-3: & The UI shall have a way to load and save XML flight plan data. \\ \hline
     \end{tabularx}
   \subsection{Hardware Interfaces}
-    \begin{tabularx}{\textwidth}{|l|X|}
-      \hline
-      HI-1: & SD Card writer with SD Card\\
-      \hline
+    \begin{tabularx}{\textwidth}{|l|l|X|} \hline
+      HI-1: & SD card writer with SD card & Location where flight plans are saved. \\ \hline
+      HI-2: & Monitor, keyboard, and mouse & User interaction is optimized for a standard desktop. \\ \hline
     \end{tabularx}
 
   \subsection{Software Interfaces}
-    \begin{tabularx}{\textwidth}{|l|X|}
-      \hline
-      SI-1: & stuff here \\
-      \hline
+    \begin{tabularx}{\textwidth}{|l|l|X|} \hline
+      SI-1: & Microsoft Windows 7, 8, 10 & Primary operating systems supported. \\ \hline
+      SI-2: & .NET 4.5 & Runtime environment for the application. \\ \hline
+      SI-3: & An XML library & A specific XML library will be identified at a later time.
+        This will be used to verify the correctness of files. \\ \hline
     \end{tabularx}
 
   \subsection{Communications Interfaces}
-  No communications interfaces have been identified.
+  No communications interfaces exist.
 
 \subsection{Other Nonfunctional Requirements}
   \subsection{Performance Requirements}
-    \begin{tabularx}{\textwidth}{|l|X|}
-      \hline
-      PE-1: & The UI shall refactor the tiled maps within 1 minutes\\ \hline
+    \begin{tabularx}{\textwidth}{|l|X|} \hline
+      PE-1: & The UI shall refactor the tiled maps within 1 minute. \\ \hline
     \end{tabularx}
 
   \subsection{Safety Requirments}
@@ -227,9 +279,8 @@ Ian Littke & 0.1 & Initial document blocking & 2017-02-21 \\ \hline
   \end{description}
 
 \section{Analysis Models}
+
 \section{Issues List}
-
-
 
 \bibliography{citations}{}
 \bibliographystyle{plain}
