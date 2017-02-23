@@ -82,7 +82,7 @@ Ian Littke & 0.1 & Initial document blocking & 2017-02-21 \\ \hline
   \subsection{Design and Implementation Constraints}
     \begin{tabularx}{\textwidth}{|l|X|}
       \hline
-      CO-1: & The system's design and code shall be written in \textsc{\settoheight{\dimen0}{C}C\kern-.05em \resizebox{!}{\dimen0}{\raisebox{\depth}{\#}}}\\ \hline
+      CO-1: & The system's design and code shall be written in C\# \\ \hline
       CO-2: & All flight plans shall be recorded in XML\\
       \hline
     \end{tabularx}
@@ -135,12 +135,23 @@ Ian Littke & 0.1 & Initial document blocking & 2017-02-21 \\ \hline
 
       \subsection{Draw Flight Path on Section Map Between Coordinates}
         \subsubsection{Description and Priority}
+        		The user should have the ability to not only add or delete points, but change in which
+        		order he connects one point to another. This allows the user to actually route between 
+        		points rather than have to manually navigate between them. (Priority = High)
         \subsubsection{Stimulus/Response Sequences}
-          \begin{description}
-            \item[Step 1]
-          \end{description}
+            Upon selection/editing a flight plan, the program will pull up a list of previous flight
+            points and the path between them on a map. These points will be pathed in the order the
+            appear on the list, and changing the order will change what point each point connects to.
+            The user will be able to see this editing of order (and thereby flight path) automatically
+            on the map.
         \subsubsection{Functional Requirements}
-
+			\begin{tabularx}{\textwidth}{|l|X|}
+    				\hline
+    				FR-1: & The point list shall have ability to edit ordering of lat/long coordinates\\ \hline
+     			FR-2: & If adding new lat/long coordinates, the previous coord will connect to new one.\\ \hline
+      			FR-3: & If coordinate is last on list, the path will end there.\\ \hline
+      			FR-4: & The map shall update to show new path as the list is edited/extended.\\ \hline
+    			\end{tabularx}
         \subsection{Save Flight Plan in XML to SD Card}
           \subsubsection{Description and Priority}
           \subsubsection{Stimulus/Response Sequences}
