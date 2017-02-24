@@ -28,15 +28,15 @@ Flight Planning
 \hline
 Editor & Revision & Description & Date \\ \hline \hline
 Ian Littke & 0.1 & Initial document blocking & 2017-02-21 \\ \hline
-\makecell[cl]{Cedrick Cooke,\\ Own Roth-Lerner,\\ Sander Scherman Garzon} & 0.2 & Expanded sections 3 and 4 & 2017-02-23 \\ \hline
+\makecell[cl]{Cedrick Cooke,\\ Owen Roth-Lerner,\\ Sander Scherman Garzon} & 0.2 & Expanded sections 3 and 4 & 2017-02-23 \\ \hline
 \end{tabularx}
 
 \section{Introduction}
   \subsection{Purpose}
     This SRS describes the software functional and nonfunctional requirements
     for release 1.0 of the Flight Plan Editor.
-    This document is intended to be used by the memers of the project team that will implement
-    and verify th correct functioning of the system.
+    This document is intended to be used by the members of the project team that will implement
+    and verify the correct functioning of the system.
     Unless otherwise noted, all requirements specified here are high priority
     and committed for release 1.0.
   \subsection{Document Conventions}
@@ -122,6 +122,11 @@ Ian Littke & 0.1 & Initial document blocking & 2017-02-21 \\ \hline
 			or the map can zoom out if scrolling downwards.
       \end{description}
     \subsubsection{Functional Requirements}
+    \begin{tabularx}{\textwidth}{|l|X|} \hline
+      FR-1: & Upon starting the program, the sectional map will be displayed\\ \hline
+      FR-2: & This map will have the ability to maneuver and pan based upon user mouse movement\\ \hline
+      FR-3: & Map will also respond to changes in waypoints, or selecting different flight plans\\ \hline
+      \end{tabularx}
 
   \subsection{Input Destination Coordinates}
 	
@@ -142,6 +147,11 @@ Ian Littke & 0.1 & Initial document blocking & 2017-02-21 \\ \hline
 			either save or discard the changes.
       \end{description}
     \subsubsection{Functional Requirements}
+    \begin{tabularx}{\textwidth}{|l|X|} \hline
+      FR-4: & There will be a text input box for both lattitude and longtitude coordinate input\\ \hline
+      FR-5: & Upon entering coordinates, a waypoint will be drawn on the sectional map to represent its location\\ \hline
+      FR-6: & Selecting an already created waypoint allows the user to modify the coordinates, or discard the waypoint\\ \hline
+      \end{tabularx} 
 
     \subsection{Distinguish Waypoint Coordinates}
       \subsubsection{Description and Priority}
@@ -159,6 +169,11 @@ Ian Littke & 0.1 & Initial document blocking & 2017-02-21 \\ \hline
 			plan.
         \end{description}
       \subsubsection{Functional Requirements}
+      \begin{tabularx}{\textwidth}{|l|X|} \hline
+        FR-7: & Each waypoint drawn on the map shall display the lattitude and longitude coordinates\\ \hline
+        FR-8: & Each waypoint will also be displayed as a list between other points for connections\\ \hline
+        \end{tabularx}
+
 
       \subsection{Draw Flight Path on Section Map Between Coordinates}
         \subsubsection{Description and Priority}
@@ -173,10 +188,10 @@ Ian Littke & 0.1 & Initial document blocking & 2017-02-21 \\ \hline
             on the map.
         \subsubsection{Functional Requirements}
           \begin{tabularx}{\textwidth}{|l|X|} \hline
-            FR-1: & The point list shall have ability to edit ordering of lat/long coordinates\\ \hline
-            FR-2: & If adding new lat/long coordinates, the previous coord will connect to new one.\\ \hline
-            FR-3: & If coordinate is last on list, the path will end there.\\ \hline
-      	    FR-4: & The map shall update to show new path as the list is edited/extended.\\ \hline
+            FR-9: & The point list shall have ability to edit ordering of lat/long coordinates\\ \hline
+            FR-10: & If adding new lat/long coordinates, the previous coord will connect to new one.\\ \hline
+            FR-11: & If coordinate is last on list, the path will end there.\\ \hline
+      	    FR-12: & The map shall update to show new path as the list is edited/extended.\\ \hline
           \end{tabularx}
         \subsection{Open and Save Flight Plan in XML to SD Card}
           \subsubsection{Description and Priority}
@@ -238,7 +253,7 @@ Ian Littke & 0.1 & Initial document blocking & 2017-02-21 \\ \hline
   \subsection{Communications Interfaces}
   No communications interfaces exist.
 
-\subsection{Other Nonfunctional Requirements}
+
   \subsection{Performance Requirements}
     \begin{tabularx}{\textwidth}{|l|X|} \hline
       PE-1: & The UI shall refactor the tiled maps within 1 minute. \\ \hline
@@ -249,6 +264,7 @@ Ian Littke & 0.1 & Initial document blocking & 2017-02-21 \\ \hline
   \subsection{Security Requirements}
   No security requirements have been identified.
   \subsection{Software Quality Attributes}
+	No additional software quality attributes at this time.
 
 \section{Other Requirements}
   \subsection{Key Milestones}
